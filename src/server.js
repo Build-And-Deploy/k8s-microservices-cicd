@@ -9,6 +9,11 @@ const port = 3001;
 app.use(cors());      
 app.use(express.json());
 
+// GET route
+app.get('/', (req, res) => {
+    res.send("Server up and running!");
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
