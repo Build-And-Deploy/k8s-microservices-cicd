@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://mongo:27017/comicdb');
+        const conn = await mongoose.connect('mongodb://mongo:27017/comicdb');
+        console.log('Connected to comicdb');
     } catch (err) {
         console.error('', err);
         process.exit(1);

@@ -8,6 +8,12 @@ const router = express.Router();
 
 // GET all comics
 router.get('/', async (req, res) => {
+    try {
+        const comics = await Comic.find();
+        res.status(200).json(comics);
+    } catch(error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
 // GET single comic
