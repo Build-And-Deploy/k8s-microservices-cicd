@@ -3,17 +3,18 @@
 
 const express = require('express');
 const cors = require('cors');
+const connectDB = require('./database/db');
+const comicRoutes = require('./routes/comicRoutes');
 
 const app = express();
 const port = 3001;
 
+connectDB();
+
 app.use(cors());      
 app.use(express.json());
 
-// GET route
-app.get('/', (req, res) => {
-    res.send("Server up and running!");
-});
+app.use('/api/comics', comicRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
