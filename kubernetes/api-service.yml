@@ -3,3 +3,10 @@ kind: Service
 metadata:
   name: comic-api
 spec:
+  selector:
+    app: comic-api
+  ports: 
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
+  type: NodePort

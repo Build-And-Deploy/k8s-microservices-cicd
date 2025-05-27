@@ -3,3 +3,17 @@ kind: Deployment
 metadata:
   name: comic-api
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comic-api
+  template:
+    metadata:
+      labels:
+        app: comic-api
+    spec:
+      containers:
+        - name: comic-api
+          image: brendanddev/comic-api:latest
+          ports: 
+            - containerPort: 3001
